@@ -2,17 +2,30 @@
 
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { createXRStore, XR } from '@react-three/xr'
-import { useGLTF } from '@react-three/drei'
-import { useRef, useEffect } from 'react'
+import { useGLTF, Html, useProgress } from '@react-three/drei'
+import { useRef, useEffect, Suspense } from 'react'
 import { Button } from '@/components/ui/button'
 import { YBot } from '../_components/Y'
 import { RectangleGoggles } from 'lucide-react'
+import Loader from '@/components/ui/Loader'
 
 // Create the store once, outside component scope
 const store = createXRStore()
 
+function ProgressLoader() {
+    const { progress } = useProgress()
+    return (
+        <Html center>
+            <Loader color={`white`} fullScreen className='bg-transparent'/>
+            <div className='text-white text-center mt-18 min-w-fit w-90 text-sm'>
+            Assets & Deps: {Math.round(progress)}% loaded
+            </div>
+        </Html>
+    )
+}
+
 function OfficeEnvironment() {
-    const gltf = useGLTF('/models/modern_office_com.glb')
+    const gltf = useGLTF('https://raw.githubusercontent.com/amanyadav-work/career-ai/main/public/models/modern_office_com.glb')
     return (
         <primitive object={gltf.scene} rotation={[0, 4.74, 0]} position={[0, 0, 0]} scale={5} />
     )
@@ -112,17 +125,19 @@ export default function MockVR({ currentAnimation }) {
                 <Button size='sm' className='text-xs' onClick={() => store.enterVR()}>Enter VR Mode <RectangleGoggles /></Button>
             </div>
             <Canvas camera={{ position: [0, 0, 10], fov: 75 }} style={{ background: 'black' }}>
-                <XR store={store}>
-                    <OfficeEnvironment />
-                    <ambientLight />
-                    <directionalLight position={[-2, -5, 5]} castShadow shadow-mapSize={1024} intensity={1.5} />
+                <Suspense fallback={<ProgressLoader />}>
+                    <XR store={store}>
+                        <OfficeEnvironment />
+                        <ambientLight />
+                        <directionalLight position={[-2, -5, 5]} castShadow shadow-mapSize={1024} intensity={1.5} />
 
-                    <directionalLight position={[4, -5, 5]} castShadow shadow-mapSize={1024} intensity={0.5} color='#d9d9d9' />
+                        <directionalLight position={[4, -5, 5]} castShadow shadow-mapSize={1024} intensity={0.5} color='#d9d9d9' />
 
-                    <CameraController />
-                    <YBot currentAnimation={currentAnimation} />
-                    <pointLight position={[10, 10, 10]} />
-                </XR>
+                        <CameraController />
+                        <YBot currentAnimation={currentAnimation} />
+                        <pointLight position={[10, 10, 10]} />
+                    </XR>
+                </Suspense>
             </Canvas>
 
         </div>
