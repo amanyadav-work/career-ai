@@ -10,8 +10,8 @@ import { SkeletonUtils } from 'three-stdlib'
 
 export function YBot({ currentAnimation = "idle", ...props }) {
   const group = React.useRef()
-  const { scene } = useGLTF('/models/Y2.glb')
-  const { animations } = useGLTF('/animations/all-animations.glb')
+  const { scene } = useGLTF('https://raw.githubusercontent.com/amanyadav-work/career-ai/main/public/models/Y2.glb')
+  const { animations } = useGLTF('https://raw.githubusercontent.com/amanyadav-work/career-ai/main/public/animations/all-animations.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
 
@@ -71,4 +71,4 @@ export function YBot({ currentAnimation = "idle", ...props }) {
   )
 }
 
-useGLTF.preload('/models/Y2.glb')
+useGLTF.preload('https://raw.githubusercontent.com/amanyadav-work/career-ai/main/public/models/Y2.glb')
