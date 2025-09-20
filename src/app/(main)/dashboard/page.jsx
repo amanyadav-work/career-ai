@@ -25,8 +25,10 @@ import {
   Users,
   Award,
 } from "lucide-react";
+import { useUser } from "@/context/UserContext";
 
 export default function Page() {
+  const { user } = useUser()
   const recentActivities = [
     { action: "Completed React Advanced course", time: "2 hours ago", type: "learning" },
     { action: "Applied to Senior Developer position", time: "1 day ago", type: "application" },
@@ -50,7 +52,7 @@ export default function Page() {
           <div className="mb-8 px-4 md:px-0">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold mb-2">Welcome back, Alex!</h2>
+                <h2 className="text-2xl font-bold mb-2">Welcome back, {user.name}!</h2>
                 <p className="text-muted-foreground">Here's your career progress overview</p>
               </div>
               <Badge variant="secondary" className="px-3 py-1 flex items-center">

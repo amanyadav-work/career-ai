@@ -122,7 +122,7 @@ const router = useRouter();
 
                   <FormField
                     id="profile"
-                    label="Profile Image URL"
+                    label="Profile Image URL (Optional)"
                     placeholder="https://example.com/profile.jpg"
                     register={register}
                     errors={errors}
@@ -157,7 +157,7 @@ const router = useRouter();
 
           <div className="bg-muted relative hidden md:block">
             <img
-              src="/placeholder.svg"
+              src="/job-banner.png"
               alt="Image"
               className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
             />

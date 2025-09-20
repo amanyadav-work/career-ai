@@ -3,7 +3,7 @@ import { MoonLoader } from 'react-spinners';
 
 const Loader = ({
   text,
-  color = 'blue', // Tailwind's green-400 in hex
+  color = 'skyblue', // Tailwind's green-400 in hex
   fullScreen = false,
   className = '',
   spinnerClassName = '',

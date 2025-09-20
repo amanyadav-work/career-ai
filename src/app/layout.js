@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { UserProvider } from "@/context/UserContext";
 import Head from "next/head";
 import { OfflineStatusProvider } from "@/context/OfflineStatusContext";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -68,22 +69,29 @@ export default function RootLayout({ children }) {
       <body
         className={`${outfit.variable} antialiased  border-t-2 `}
       >
-        <OfflineStatusProvider>
-          <UserProvider>
-            {children}
-            <Toaster
-              duration={2000}
-              toastOptions={{
-                classNames: {
-                  success: '!bg-green-700 !text-white',
-                  error: '!bg-red-700 !text-white',
-                  info: '!bg-blue-500 !text-white',
-                  warning: '!bg-yellow-500 !text-black',
-                },
-              }}
-            />
-          </UserProvider>
-        </OfflineStatusProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <OfflineStatusProvider>
+            <UserProvider>
+              {children}
+              <Toaster
+                duration={2000}
+                toastOptions={{
+                  classNames: {
+                    success: '!bg-green-700 !text-white',
+                    error: '!bg-red-700 !text-white',
+                    info: '!bg-blue-500 !text-white',
+                    warning: '!bg-yellow-500 !text-black',
+                  },
+                }}
+              />
+            </UserProvider>
+          </OfflineStatusProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

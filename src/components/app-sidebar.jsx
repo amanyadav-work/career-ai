@@ -50,12 +50,12 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Micro Ai",
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
     {
-      name: "Acme Corp.",
+      name: "Micro Ai",
       logo: AudioWaveform,
       plan: "Startup",
     },
@@ -67,7 +67,31 @@ const data = {
   ],
   navMain: [
     {
-      title: "Career Center",
+      title: "Ready Features",
+      type: "category",
+      items: [
+        {
+          title: "Mock Interview",
+          url: "/mock-interview",
+          icon: Video,
+          type: "link"
+        },
+        {
+          title: "Career Roadmap",
+          url: "/roadmap",
+          icon: Compass,
+          type: "link"
+        },
+        {
+          title: "Internships",
+          url: "/internships",
+          icon: Briefcase,
+          type: "link"
+        }
+      ],
+    },
+    {
+      title: "Coming Soon",
       type: "category",
       items: [
         {
@@ -83,39 +107,15 @@ const data = {
           type: "link"
         },
         {
-          title: "Mock Interview",
-          url: "/mock-interview",
-          icon: Video,
-          type: "link"
-        }
-      ],
-    },
-    {
-      title: "Career Planning",
-      type: "category",
-      items: [
-        {
           title: "Skill Gap Analysis",
           url: "/skillgap",
           icon: Award,
           type: "link"
         },
         {
-          title: "Career Roadmap",
-          url: "/roadmap",
-          icon: Compass,
-          type: "link"
-        },
-        {
           title: "Market Trends",
           url: "/markettrends",
           icon: BarChart3,
-          type: "link"
-        },
-        {
-          title: "Internships",
-          url: "/internships",
-          icon: Briefcase,
           type: "link"
         }
       ],
@@ -146,7 +146,7 @@ const [isModelDownloaded, setIsModelDownloaded] = React.useState(false);
       <SidebarContent>
         <NavMain items={data.navMain} />
         <SidebarGroup>
-          <SidebarGroupLabel>Offline Support</SidebarGroupLabel>
+          <SidebarGroupLabel>Offline Support (Coming Soon)</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <Collapsible
@@ -159,8 +159,8 @@ const [isModelDownloaded, setIsModelDownloaded] = React.useState(false);
                       <div className={`border`}>
                         <DownloadIcon className="mr-2 h-4 w-4" />
                         {(progress.text && progress.percent !== 100)
-                          ? `'Downloading... (${progress.percent}%)`
-                          : "Download/Setup Offline Mode"}
+                          ? `Downloading... (${progress.percent}%)`
+                          : "Setup Offline Mode"}
                       </div>
                     </SidebarMenuButton>
 
