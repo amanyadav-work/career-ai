@@ -139,7 +139,7 @@ export default function RoadmapPage() {
               <CardDescription>The requested roadmap could not be found or is not available</CardDescription>
             </CardHeader>
             <CardContent className="text-center text-muted-foreground pt-4 pb-8">
-              The roadmap you're looking for doesn't exist or you may not have permission to view it.
+            The roadmap you&apos;re looking for doesn&apos;t exist or you may not have permission to view it.
             </CardContent>
           </Card>
         )}
