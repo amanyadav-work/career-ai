@@ -14,7 +14,7 @@ const outfit = Outfit({
 
 
 const APP_NAME = "PWA App";
-const APP_DEFAULT_TITLE = "My Awesome PWA App";
+const APP_DEFAULT_TITLE = "micro.ai - career growth made easy";
 const APP_TITLE_TEMPLATE = "%s - PWA App";
 const APP_DESCRIPTION = "Best PWA app in the world!";
 

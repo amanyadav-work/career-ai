@@ -249,8 +249,9 @@ const Page = () => {
 
                 {/* Description */}
                 <p className="mb-8 max-w-xl text-muted-foreground lg:text-md">
-                  Transform your career journey with our AI-powered assistant. From personalized job recommendations to VR mock interviews, we've got you covered every step of the way.
+                  Transform your career journey with our AI-powered assistant. From personalized job recommendations to VR mock interviews, we&apos;ve got you covered every step of the way.
                 </p>
+
                 <div className="flex w-full max-w-xl items-center justify-between pl-5 pr-4 py-3 rounded-sm  border-2 gap-2">
                   <Search className="size-5 text-blue-600 " strokeWidth={3.5} />
                   <Input className='border-0 w-full bg-none !focus-visible:ring-0 !focus-visible:outline-0 !focus:outline-0 p-2 text-sm !bg-transparent' placeholder={placeholder + (isBlinking ? '|' : '')} />
@@ -530,7 +531,7 @@ const Page = () => {
                     Simply upload your resume, and our system automatically extracts your skills, education, and experience. This information is then used to auto-generate and fill your user profile, saving you time and effort.
                   </AccordionContent>
                 </AccordionItem>
-                
+
                 <AccordionItem className=" dark:border-white/20 bg-white/40 dark:bg-gray-800/40 cursor-pointer rounded-lg px-4 transition-colors duration-200" value="item-4">
                   <AccordionTrigger>Can recruiters use the AI interviewer feature?</AccordionTrigger>
                   <AccordionContent>
