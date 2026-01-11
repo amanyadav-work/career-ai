@@ -94,31 +94,37 @@ const MockInterviewPage = () => {
   };
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-10 xl:px-15 3xl:px-0">
       {/* Header Section */}
       <div className="mb-8">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex  flex-col-reverse sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div>
-            <h2 className="text-3xl font-bold mb-2">Mock Interviews</h2>
-            <p className="text-muted-foreground">Practice your interview skills with AI-powered mock interviews</p>
+            <h2 className="text-3xl font-bold mb-2">
+             <span className="text-bold">AI-Powered VR Experience</span>
+            </h2>
+            <p className="text-muted-foreground">
+              Immerse yourself in realistic, AI-driven virtual reality interviews. Sharpen your skills and boost your confidence—anytime, anywhere.
+            </p>
           </div>
           <Badge variant="secondary" className="px-3 py-1 flex items-center">
             <Brain className="w-4 h-4 mr-1" />
-            Interview Hub
+            VR Interview Hub
           </Badge>
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 gap-10">
         {/* Form Section */}
-        <div className="lg:col-span-1 space-y-6">
-          <Card>
+        <div className="lg:col-span-1 space-y-8">
+          <Card className="shadow-lg border-2 border-blue-100 dark:border-zinc-800 bg-gradient-to-br from-white via-blue-50 to-purple-50 dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-800">
             <CardHeader>
-              <CardTitle>Create New Interview</CardTitle>
-              <CardDescription>Set up your mock interview session</CardDescription>
+              <CardTitle className="text-xl font-bold">Launch a New VR Interview</CardTitle>
+              <CardDescription className="text-base">
+                Personalize your virtual interview session
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <FormField
                   id="title"
                   name="title"
@@ -128,7 +134,6 @@ const MockInterviewPage = () => {
                   onChange={handleInputChange}
                   required
                 />
-                
                 <FormField
                   id="jobRole"
                   name="jobRole"
@@ -138,7 +143,6 @@ const MockInterviewPage = () => {
                   onChange={handleInputChange}
                   required
                 />
-
                 <FormField
                   id="skills"
                   name="skills"
@@ -148,14 +152,13 @@ const MockInterviewPage = () => {
                   onChange={handleInputChange}
                   required
                 />
-
                 <div className="grid w-full gap-1">
-                  <label htmlFor="difficulty" className="pb-1">Difficulty Level</label>
-                  <Select
+                  <label htmlFor="difficulty" className="pb-1 font-medium">Difficulty Level</label>
+                  <Select 
                     value={formData.difficulty}
                     onValueChange={(value) => handleSelectChange('difficulty', value)}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-700">
                       <SelectValue placeholder="Select difficulty" />
                     </SelectTrigger>
                     <SelectContent>
@@ -165,7 +168,6 @@ const MockInterviewPage = () => {
                     </SelectContent>
                   </Select>
                 </div>
-
                 <FormField
                   id="notes"
                   name="notes"
@@ -176,10 +178,9 @@ const MockInterviewPage = () => {
                   isTextArea={true}
                   rows={3}
                 />
-
                 <Button 
                   type="submit" 
-                  className="w-full mt-2"
+                  className="w-full mt-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow-lg hover:from-blue-600 hover:to-purple-600"
                   disabled={isSubmitting}
                 >
                   <Plus className="mr-2 h-4 w-4" />
@@ -190,24 +191,24 @@ const MockInterviewPage = () => {
           </Card>
 
           {/* Stats Card */}
-          <Card>
+          <Card className="shadow border-2 border-purple-100 dark:border-zinc-800 bg-gradient-to-br from-white via-purple-50 to-blue-50 dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-800">
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">Interview Stats</CardTitle>
+              <CardTitle className="text-base font-semibold">Your VR Interview Stats</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Target className="h-4 w-4 text-muted-foreground mr-2" />
-                  <span className="text-sm">Total Interviews</span>
+                  <span className="text-sm">Total VR Sessions</span>
                 </div>
-                <span className="font-medium">{interviews.length}</span>
+                <span className="font-bold text-lg">{interviews.length}</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <BarChart3 className="h-4 w-4 text-muted-foreground mr-2" />
-                  <span className="text-sm">Completed</span>
+                  <span className="text-sm">Completed Sessions</span>
                 </div>
-                <span className="font-medium">
+                <span className="font-bold text-lg">
                   {interviews.filter(i => i.status === 'completed').length}
                 </span>
               </div>
@@ -217,28 +218,32 @@ const MockInterviewPage = () => {
 
         {/* Interview List Section */}
         <div className="lg:col-span-2">
-          <Card>
+          <Card className="shadow-xl border-2 border-blue-100 dark:border-zinc-800 bg-gradient-to-br from-white via-blue-50 to-purple-50 dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-800">
             <CardHeader>
-              <CardTitle>Your Interview Sessions</CardTitle>
-              <CardDescription>View and manage your mock interview sessions</CardDescription>
+              <CardTitle className="text-xl font-bold">Your VR Interview Sessions</CardTitle>
+              <CardDescription className="text-base">
+                Review, manage, and relaunch your immersive AI-powered VR mock interviews.
+              </CardDescription>
             </CardHeader>
             <CardContent>
               {fetchingInterviews ? (
-                <div className="text-center py-10">Loading interviews...</div>
+                <div className="text-center py-10 text-lg text-muted-foreground">Loading your VR interviews...</div>
               ) : interviews.length === 0 ? (
                 <div className="text-center py-10">
-                  <p className="text-muted-foreground">No mock interviews yet. Create your first one!</p>
+                  <p className="text-muted-foreground text-lg">
+                    No VR interviews yet. <span className="text-primary font-semibold">Start your first AI-powered virtual session now!</span>
+                  </p>
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {interviews.map((interview, index) => (
                     <React.Fragment key={interview._id}>
                       {index > 0 && <Separator className="my-4" />}
-                      <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="flex flex-col sm:flex-row gap-6 bg-white/60 dark:bg-zinc-900/60 rounded-lg p-5 border border-gray-100 dark:border-zinc-800 shadow-sm hover:shadow transition">
                         <div className="flex-1">
-                          <h3 className="font-medium text-lg">{interview.title}</h3>
-                          <p className="text-muted-foreground text-sm">
-                            Role: {interview.jobRole} • {interview.difficulty} level
+                          <h3 className="font-semibold text-lg text-primary">{interview.title}</h3>
+                          <p className="text-muted-foreground text-sm mb-1">
+                            <span className="font-medium">Role:</span> {interview.jobRole} &nbsp;•&nbsp; {interview.difficulty} level
                           </p>
                           <div className="mt-2 space-y-1">
                             <p className="text-sm">
@@ -257,9 +262,10 @@ const MockInterviewPage = () => {
                         <div className="flex items-center">
                           <Button 
                             variant="default"
+                            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold shadow hover:from-blue-600 hover:to-purple-600"
                             onClick={() => window.location.href = `/mock-interview/${interview._id}`}
                           >
-                            Start Interview
+                            Enter VR Interview
                           </Button>
                         </div>
                       </div>

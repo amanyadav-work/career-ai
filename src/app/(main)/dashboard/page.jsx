@@ -45,7 +45,7 @@ export default function Page() {
 
   return (
     <>
-      <div className=" gap-4  md:grid-cols-3  border rounded-sm">
+      <div className=" gap-4  md:grid-cols-3  4xl:border rounded-sm xl:px-5">
         {/* Left two columns combined for dashboard content */}
         <div className="flex container mx-auto py-10 flex-col space-y-8">
           {/* Welcome Section */}
@@ -170,7 +170,7 @@ export default function Page() {
                         <p className="text-sm text-muted-foreground mb-3">
                           You're 2 months away from reaching Senior Developer level. Complete your TypeScript certification to accelerate progress.
                         </p>
-                        <Link href="/career-path" passHref>
+                        <Link href="google.com/search?q=new milestone in ai" passHref>
                           <Button as="a" size="sm" variant="outline">View Path</Button>
                         </Link>
                       </div>

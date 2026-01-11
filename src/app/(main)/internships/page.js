@@ -199,13 +199,13 @@ export default function InternshipsPage() {
   };
 
   return (
-    <div className="border rounded-sm">
+    <div className="4xl:border rounded-sm">
        <img 
           src={"/job-banner.png"}
           className="w-full h-fit object-contain"
         />
         
-      <div className="container mx-auto py-10 flex flex-col space-y-8">
+      <div className="container mx-auto py-10 xl:px-5 flex flex-col space-y-8">
         {/* Header Section - Styled like dashboard welcome section */}
         <div className="mb-2 px-4 md:px-0">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">

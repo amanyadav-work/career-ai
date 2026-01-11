@@ -18,6 +18,7 @@ import {
   Video, // Changed for mock interview
   Settings2,
   SquareTerminal,
+  ToolCase,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -71,7 +72,7 @@ const data = {
       type: "category",
       items: [
         {
-          title: "Mock Interview",
+          title: "VR Mock Interview",
           url: "/mock-interview",
           icon: Video,
           type: "link"
@@ -85,9 +86,15 @@ const data = {
         {
           title: "Internships",
           url: "/internships",
+          icon: ToolCase,
+          type: "link"
+        },
+        {
+          title: "Semantic Jobs",
+          url: "/jobs",
           icon: Briefcase,
           type: "link"
-        }
+        },
       ],
     },
     {
@@ -100,24 +107,24 @@ const data = {
           icon: Layout,
           type: "link"
         },
-        {
-          title: "Career Consult",
-          url: "/consult",
-          icon: Bot,
-          type: "link"
-        },
-        {
-          title: "Skill Gap Analysis",
-          url: "/skillgap",
-          icon: Award,
-          type: "link"
-        },
-        {
-          title: "Market Trends",
-          url: "/markettrends",
-          icon: BarChart3,
-          type: "link"
-        }
+      //   {
+      //     title: "Career Consult",
+      //     url: "/consult",
+      //     icon: Bot,
+      //     type: "link"
+      //   },
+      //   {
+      //     title: "Skill Gap Analysis",
+      //     url: "/skillgap",
+      //     icon: Award,
+      //     type: "link"
+      //   },
+      //   {
+      //     title: "Market Trends",
+      //     url: "/markettrends",
+      //     icon: BarChart3,
+      //     type: "link"
+      //   }
       ],
     }
   ]
@@ -145,7 +152,7 @@ const [isModelDownloaded, setIsModelDownloaded] = React.useState(false);
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <SidebarGroup>
+        {/* <SidebarGroup>
           <SidebarGroupLabel>Offline Support (Coming Soon)</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -169,7 +176,7 @@ const [isModelDownloaded, setIsModelDownloaded] = React.useState(false);
               </Collapsible>
             </SidebarMenu>
           </SidebarGroupContent>
-        </SidebarGroup>
+        </SidebarGroup> */}
       </SidebarContent>
       <SidebarFooter>
 

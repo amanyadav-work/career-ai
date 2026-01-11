@@ -11,7 +11,9 @@ export async function POST(req) {
   try {
     const { email, password, name, age, profile } = await req.json();
 
-    if (!email || !password || !name || !age || !profile) {
+    
+
+    if (!email || !password || !name || !age ) {
       return sendErrorResponse({ code: 'missing_fields', message: 'All fields are required', status: 400 });
     }
 
@@ -29,7 +31,7 @@ export async function POST(req) {
       password: hashedPassword,
       name,
       age,
-      profile,
+      profile: profile || "https://avatars.githubusercontent.com/u/124599?v=4",
     });
 
     const token = jwt.sign(

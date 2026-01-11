@@ -113,7 +113,7 @@ const Consult = () => {
           <Card>
             <CardHeader className="flex flex-row items-center gap-2">
               <Upload className="w-2 h-2" />
-              <CardTitle className="text-xs">Upload Medical Images</CardTitle>
+              <CardTitle className="text-xs">Upload Images</CardTitle>
             </CardHeader>
             <CardContent>
               <DropzoneField

@@ -16,13 +16,13 @@ export default function RoadmapsPage() {
   const [roadmaps, setRoadmaps] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
-  
+
   // Debounce search input
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedSearch(searchTerm), 300);
     return () => clearTimeout(timer);
   }, [searchTerm]);
-  
+
   // Use fetch hook for getting roadmaps
   const {
     isLoading,
@@ -44,8 +44,12 @@ export default function RoadmapsPage() {
   }, [debouncedSearch]);
 
   return (
-    <div className="border rounded-sm">
-      <div className="container mx-auto py-10 flex flex-col space-y-8">
+    <div className="4xl:border rounded-sm">
+      <img
+        src={"/vr.jpg"}
+        className="w-full saturate-50 max-h-[40vh] object-cover object-center rounded-sm"
+      />
+      <div className="container mx-auto py-10 flex flex-col space-y-8 xl:px-5">
         {/* Header Section - Styled like dashboard welcome section */}
         <div className="mb-2 px-4 md:px-0">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
@@ -53,14 +57,14 @@ export default function RoadmapsPage() {
               <h2 className="text-2xl font-bold mb-2">Career Roadmaps</h2>
               <p className="text-muted-foreground">Browse and create personalized career development paths</p>
             </div>
-            
+
             <Badge variant="secondary" className="px-3 py-1 flex items-center">
               <MapIcon className="w-4 h-4 mr-1" />
               Career Planning
             </Badge>
           </div>
         </div>
-        
+
         {/* Search and Create Section */}
         <Card>
           <CardHeader className="pb-3">
@@ -99,9 +103,9 @@ export default function RoadmapsPage() {
               <CardDescription>Career paths to help guide your professional development</CardDescription>
             </div>
             {!isLoading && !error && roadmaps.length > 0 && (
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={() => fetchRoadmaps()}
                 className="flex items-center"
               >

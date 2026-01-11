@@ -24,7 +24,7 @@ export function AuthForm({ className, pathname = 'login', ...props }) {
     password: z.string().min(6, 'Password must be at least 6 characters'),
     name: z.string().min(1, 'Name is required'),
     age: z.coerce.number().int().positive(),
-    profile: z.string().url('Profile must be a valid URL'),
+    profile: z.string().optional(),
   });
 
   const loginSchema = z.object({

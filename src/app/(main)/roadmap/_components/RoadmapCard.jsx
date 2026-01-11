@@ -25,7 +25,7 @@ export default function RoadmapCard({ roadmap }) {
           <p className="text-sm text-muted-foreground line-clamp-2 min-h-[40px]">{description}</p>
         </CardContent>
         <CardFooter className="flex justify-between pt-2">
-          <Badge variant="outline" className="bg-blue-50">
+          <Badge variant="outline" className="bg-primary/50 text-white">
             {nodeCount} {nodeCount === 1 ? 'Step' : 'Steps'}
           </Badge>
           <span className="text-xs text-muted-foreground">

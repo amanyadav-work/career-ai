@@ -26,6 +26,7 @@ import { useTheme } from "next-themes";
 import { Card, CardContent } from "@/components/ui/card";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { useRouter } from "next/navigation";
 
 const jobCardsData = [
   {
@@ -149,6 +150,7 @@ const Page = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const { theme } = useTheme()
+  const router = useRouter()
 
   const jobTitles = ['AI-Powered Career Assistant', 'VR Mock Interview Simulator', 'Resume Parsing & Profile Builder', 'Personalized Job Recommendations', 'AI Interviewer & Evaluator'];
   const [placeholder, setPlaceholder] = useState('');
@@ -255,7 +257,7 @@ const Page = () => {
                 <div className="flex w-full max-w-xl items-center justify-between pl-5 pr-4 py-3 rounded-sm  border-2 gap-2">
                   <Search className="size-5 text-blue-600 " strokeWidth={3.5} />
                   <Input className='border-0 w-full bg-none !focus-visible:ring-0 !focus-visible:outline-0 !focus:outline-0 p-2 text-sm !bg-transparent' placeholder={placeholder + (isBlinking ? '|' : '')} />
-                  <Button variant="ghost" className="rounded-sm bg-blue-600 text-white">Ask AI<ArrowRight className="hover:rotate-180 transition-all duration-1000" /></Button>
+                  <Button variant="ghost" onClick={ () => router.push('/mock-interview')} className="rounded-sm bg-blue-600 text-white">Ask AI<ArrowRight className="hover:rotate-180 transition-all duration-1000" /></Button>
                 </div>
 
 
@@ -449,7 +451,7 @@ const Page = () => {
                         <img
                           src={job.banner}
                           alt={`${job.title} Banner`}
-                          className="object-cover rounded-t-xl h-40 w-full"
+                          className="object-cover rounded-xl h-40 w-full"
                         />
                         <CardContent className="space-y-2 py-0">
                           {/* Company Info */}

@@ -45,7 +45,7 @@ export default function JobCard({ job, onClick }) {
   }
   return (
     <div
-      className="relative flex flex-col overflow-hidden bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+      className="relative flex flex-col overflow-hidden bg-white dark:bg-zinc-900 rounded-lg border border-secondary dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
       onClick={() => onClick(job)}
     >
       {/* Top image section */}
@@ -54,10 +54,8 @@ export default function JobCard({ job, onClick }) {
         <img
           src={job.banner_image || randomImgs()}
           alt={job.title}
-          className="w-full h-fit  object-cover object-center"
+          className="w-full h-fit object-cover object-center"
         />
-
-        {/* Dark overlay */}
 
         {/* Entry closes tag */}
         <div className="absolute top-4 left-4 bg-black bg-opacity-50 text-white text-xs px-3 py-1 rounded-md">
@@ -65,14 +63,14 @@ export default function JobCard({ job, onClick }) {
         </div>
 
         {/* Job type tag */}
-        <div className="absolute top-4 right-4 bg-white text-gray-800 text-xs font-medium px-3 py-1 rounded-md shadow-sm">
+        <div className="absolute top-4 right-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-gray-200 text-xs font-medium px-3 py-1 rounded-md shadow-sm">
           {isChallenge ? "Hiring challenge" : jobType}
         </div>
       </div>
 
       {/* Company logo & title section */}
       <div className="p-4 flex items-start gap-3">
-        <div className="h-10 w-10 bg-white rounded-md shadow-sm flex items-center justify-center overflow-hidden flex-shrink-0">
+        <div className="h-10 w-10 bg-white dark:bg-zinc-800 rounded-md shadow-sm flex items-center justify-center overflow-hidden flex-shrink-0">
           {job.organization_logo ? (
             <img
               src={job.organization_logo}
@@ -80,15 +78,15 @@ export default function JobCard({ job, onClick }) {
               className="max-w-full max-h-full object-contain"
             />
           ) : (
-            <div className="w-full h-full bg-gray-100 flex items-center justify-center text-xs text-gray-500">
+            <div className="w-full h-full bg-gray-100 dark:bg-zinc-700 flex items-center justify-center text-xs text-gray-500 dark:text-gray-300">
               {companyName?.charAt(0) || "C"}
             </div>
           )}
         </div>
 
         <div>
-          <h3 className="font-medium text-base leading-tight mb-1">{job.title || "Cloud Operation Engineering hiring challenge"}</h3>
-          <p className="text-sm text-gray-600">{companyName || "PowerSchool India"}</p>
+          <h3 className="font-medium text-base leading-tight mb-1 text-gray-900 dark:text-gray-100">{job.title || "Cloud Operation Engineering hiring challenge"}</h3>
+          <p className="text-sm text-gray-600 dark:text-gray-300">{companyName || "PowerSchool India"}</p>
         </div>
       </div>
 
@@ -97,7 +95,7 @@ export default function JobCard({ job, onClick }) {
         {tags.map((tag, i) => (
           <span
             key={i}
-            className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-md"
+            className="bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-200 text-xs px-2 py-1 rounded-md"
           >
             {tag}
           </span>
@@ -105,7 +103,7 @@ export default function JobCard({ job, onClick }) {
       </div>
 
       {/* Date and enrollment */}
-      <div className="px-4 py-3 mt-2 flex items-center gap-4 text-gray-600 text-sm">
+      <div className="px-4 py-3 mt-2 flex items-center gap-4 text-gray-600 dark:text-gray-300 text-sm">
         <div className="flex items-center gap-1.5">
           <Calendar className="h-4 w-4" />
           <span>{formattedDate}</span>
@@ -119,22 +117,26 @@ export default function JobCard({ job, onClick }) {
 
       {/* If we have a full description due to description_type=text, add a preview */}
       {hasFullDescription && (
-        <div className="px-4 py-2 border-t border-gray-100">
-          <h4 className="text-xs font-medium mb-1 text-gray-700">Job Description Preview:</h4>
-          <p className="text-xs text-gray-600 line-clamp-2">
+        <div className="px-4 py-2 border-t border-gray-100 dark:border-zinc-800">
+          <h4 className="text-xs font-medium mb-1 text-gray-700 dark:text-gray-200">Job Description Preview:</h4>
+          <p className="text-xs text-gray-600 dark:text-gray-300 line-clamp-2">
             {job.description}
           </p>
         </div>
       )}
 
       {/* Footer */}
-      <div className="mt-auto px-4 py-3 flex justify-between items-center border-t border-gray-100">
-        <div className={`text-xs font-medium uppercase px-2 py-1 rounded ${isChallengeOrOffer ? "bg-blue-100 text-blue-800" : "border border-gray-300 text-gray-700"}`}>
+      <div className="mt-auto px-4 py-3 flex justify-between items-center border-t border-gray-100 dark:border-zinc-800">
+        <div className={`text-xs font-medium uppercase px-2 py-1 rounded ${
+          isChallengeOrOffer
+            ? "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200"
+            : "border border-gray-300 dark:border-zinc-700 text-gray-700 dark:text-gray-200"
+        }`}>
           {isChallengeOrOffer ? "Job offer" : "Learn from experts"}
         </div>
 
         <button
-          className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+          className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium flex items-center"
           onClick={(e) => {
             e.stopPropagation();
             window.open(job.url || "#", '_blank', 'noopener,noreferrer');

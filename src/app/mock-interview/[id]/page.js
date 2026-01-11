@@ -220,7 +220,7 @@ const MockInterviewPage = () => {
             />
 
             {interviewComplete && (
-                <div className="mt-4 p-4 bg-yellow-100 rounded-lg">
+                <div className="mt-4 p-4 border-yellow-500 bg-background rounded-lg">
                     <h3 className="text-lg font-semibold">Interview Completed</h3>
                     <p>Thank you for completing the interview!</p>
                 </div>
