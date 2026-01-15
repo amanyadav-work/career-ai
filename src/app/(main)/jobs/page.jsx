@@ -81,7 +81,7 @@ export default function JobsPage() {
 
     // Build API URL
     const buildApiUrl = () => {
-        const baseUrl = "https://vector-search-fupy.onrender.com/getjobs";
+        const baseUrl = "https://py-vector-production.up.railway.app/getjobs";
         const params = new URLSearchParams();
         if (filters.query) params.append("query", filters.query);
         if (filters.location) params.append("location", filters.location);
