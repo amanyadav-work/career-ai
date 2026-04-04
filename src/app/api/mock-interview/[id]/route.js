@@ -14,7 +14,7 @@ export async function GET(req, { params }) {
   }
 
   const userID = payload.userId;
-  const interviewId = params.id;
+  const { id: interviewId } = await params
 
   try {
     // Fetch the interview by ID and verify it belongs to the current user
@@ -24,10 +24,10 @@ export async function GET(req, { params }) {
     }).lean();
 
     if (!interview) {
-      return sendErrorResponse({ 
-        code: 'interview_not_found', 
-        message: 'Interview not found or access denied', 
-        status: 404 
+      return sendErrorResponse({
+        code: 'interview_not_found',
+        message: 'Interview not found or access denied',
+        status: 404
       });
     }
 
@@ -55,7 +55,7 @@ export async function PATCH(req, { params }) {
 
   try {
     const { status, conversation } = await req.json();
-    
+
     // Find the interview and verify ownership
     const interview = await MockInterview.findOne({
       _id: interviewId,
@@ -63,17 +63,17 @@ export async function PATCH(req, { params }) {
     });
 
     if (!interview) {
-      return sendErrorResponse({ 
-        code: 'interview_not_found', 
-        message: 'Interview not found or access denied', 
-        status: 404 
+      return sendErrorResponse({
+        code: 'interview_not_found',
+        message: 'Interview not found or access denied',
+        status: 404
       });
     }
 
     // Update fields if provided
     if (status) interview.status = status;
     if (conversation) interview.conversation = conversation;
-    
+
     await interview.save();
 
     return NextResponse.json({
