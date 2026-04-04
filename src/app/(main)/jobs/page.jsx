@@ -81,7 +81,7 @@ export default function JobsPage() {
 
     // Build API URL
     const buildApiUrl = () => {
-        const baseUrl = "https://py-vector-production.up.railway.app/getjobs";
+        const baseUrl = `${process.env.NEXT_PUBLIC_JOBS_BACKEND_URL}getjobs`;
         const params = new URLSearchParams();
         if (filters.query) params.append("query", filters.query);
         if (filters.location) params.append("location", filters.location);
