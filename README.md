@@ -4,6 +4,7 @@
 
 Career AI is a Next.js-based career development platform offering AI-powered mock interviews, personalized career roadmaps, internship and job discovery (with semantic search), and more. The app leverages advanced AI (LLMs, RAG, ElevenLabs, Vosk, etc.) for a seamless, interactive user experience.
 
+[Watch Career AI Demo](https://drive.google.com/file/d/1xxpx0jomSZttxzv5OyjHp2U80JvDlo4R/view)
 
 ## Architecture Diagrams (HLD & LLD)
 
